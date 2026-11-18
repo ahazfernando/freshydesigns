@@ -24,6 +24,7 @@ export const images = {
   office: asset(office),
   gym: asset(gym),
   workspace: "/workspace.jpg",
+  studio: "/studio.jpg",
 };
 
 export const site = {
@@ -87,7 +88,7 @@ export const industriesSection = {
 
 export const visionSection = {
   eyebrow: "Our Vision",
-  title: "For every brand to have a clear presence",
+  titleLine1: "For every brand to have a clear presence",
   titleAccent: "Where design, build, and install",
   titleEnd: "work as one.",
   desc: "The Freshy Designs unifies concept, in-house production and on-site installation so your signage looks right, lasts longer, and gets noticed faster.",
@@ -99,6 +100,15 @@ export const visionSection = {
     { src: "/people/Frame-4.webp", alt: "Team member" },
     { src: "/people/Frame-5.webp", alt: "Team member" },
   ],
+} as const;
+
+export const studioSection = {
+  eyebrow: "Our Studio",
+  titleLine1: "Designed where the work",
+  titleAccent: "actually happens.",
+  desc: "From first sketch to production-ready artwork, our team shapes every mark so it reads clean on the wall, the window, and the road.",
+  primaryCta: { label: "Meet the studio", href: "/about" },
+  secondaryCta: { label: "Request a quote", href: "/quote" },
 } as const;
 
 export const industries: { slug: string; title: string; sub: string; desc: string; image: string; icon: "store" | "coffee" | "health" | "office" | "gym" | "fleet"; featured?: boolean }[] = [

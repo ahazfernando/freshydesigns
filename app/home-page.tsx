@@ -12,12 +12,12 @@ import { CategoryGrid } from "@/components/site/CategoryGrid";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { Reveal } from "@/components/site/Reveal";
 import { IndustryCard } from "@/components/site/IndustryCard";
-import { images, products, services, faqs, process, site, industries, industriesSection, visionSection, trustedBrands } from "@/data/site";
+import { images, products, services, faqs, process, site, industries, industriesSection, visionSection, studioSection, trustedBrands } from "@/data/site";
 
 const why = [
-  { I: Award, t: "15+ Years Excellence", d: "Over a decade and a half crafting signage for businesses of every size." },
-  { I: Factory, t: "In-House Production", d: "CNC routers, laser cutters and UV flatbed printers, all under one roof." },
-  { I: ShieldCheck, t: "Full Warranty & Permits", d: "Insured installers and council permit support from start to finish." },
+  { I: Award, n: "01", t: "15+ Years Excellence", d: "Over a decade and a half crafting signage for businesses of every size." },
+  { I: Factory, n: "02", t: "In-House Production", d: "CNC routers, laser cutters and UV flatbed printers, all under one roof." },
+  { I: ShieldCheck, n: "03", t: "Full Warranty & Permits", d: "Insured installers and council permit support from start to finish." },
 ];
 const story = [
   { I: Palette, t: "Design-led from day one", d: "Concepts, mock-ups and artwork proofs before anything is cut." },
@@ -193,53 +193,103 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-dark py-24 md:py-32">
-        <div className="mx-auto flex max-w-4xl flex-col items-center px-4 text-center">
-          <span className="inline-flex rounded-full border border-ink-border px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-ink-foreground">
-            {visionSection.eyebrow}
-          </span>
-
-          <div className="mt-8 flex items-center justify-center -space-x-3">
-            {visionSection.people.map((person) => (
-              <img
-                key={person.src}
-                src={person.src}
-                alt={person.alt}
-                width={72}
-                height={72}
-                loading="lazy"
-                decoding="async"
-                className="h-14 w-14 rounded-full object-cover ring-2 ring-ink md:h-16 md:w-16"
-              />
-            ))}
+      <div className="relative">
+        <section id="studio" className="sticky top-0 isolate min-h-[min(92svh,52rem)] overflow-hidden bg-ink">
+          <img
+            src={images.studio}
+            alt="Designer working at a tablet in the Freshy Designs studio"
+            width={2048}
+            height={1152}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_40%]"
+          />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/55 to-ink/15" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/80 via-ink/35 to-transparent" />
+          <div className="mx-auto flex min-h-[min(92svh,52rem)] w-full max-w-[100rem] items-end justify-start px-4 pb-16 pt-24 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24">
+            <div className="w-full max-w-2xl text-ink-foreground lg:ml-[min(2vw,1.5rem)]">
+              <p className="flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-primary">
+                <span aria-hidden className="h-px w-10 shrink-0 bg-primary" />
+                {studioSection.eyebrow}
+              </p>
+              <h2 className="mt-6 text-4xl font-bold leading-[1.02] tracking-[-0.03em] md:text-5xl lg:text-[3.65rem]">
+                <span className="block text-balance">{studioSection.titleLine1}</span>
+                <span className="block text-primary">{studioSection.titleAccent}</span>
+              </h2>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-white/80 md:text-[1.05rem]">{studioSection.desc}</p>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <Button asChild size="xl" variant="glow" className="uppercase tracking-[0.08em]">
+                  <Link href={studioSection.primaryCta.href}>
+                    {studioSection.primaryCta.label}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button asChild size="xl" variant="ghostDark" className="border-white/35 uppercase tracking-[0.08em] hover:border-primary">
+                  <Link href={studioSection.secondaryCta.href}>{studioSection.secondaryCta.label}</Link>
+                </Button>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <h2 className="mt-10 max-w-3xl text-3xl font-bold leading-[1.12] tracking-tight text-ink-foreground md:text-5xl md:leading-[1.08]">
-            {visionSection.title}
-            <br />
-            <span className="font-serif text-[0.92em] font-medium italic text-primary">{visionSection.titleAccent}</span>{" "}
-            {visionSection.titleEnd}
-          </h2>
+        <section className="relative z-10 section-dark py-24 md:py-32">
+          <div className="mx-auto flex max-w-4xl flex-col items-center px-4 text-center">
+            <span className="inline-flex rounded-full border border-ink-border px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-ink-foreground">
+              {visionSection.eyebrow}
+            </span>
 
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">{visionSection.desc}</p>
+            <div className="mt-8 flex items-center justify-center -space-x-3">
+              {visionSection.people.map((person) => (
+                <img
+                  key={person.src}
+                  src={person.src}
+                  alt={person.alt}
+                  width={72}
+                  height={72}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-14 w-14 rounded-full object-cover ring-2 ring-ink md:h-16 md:w-16"
+                />
+              ))}
+            </div>
 
-          <Button asChild size="xl" variant="glow" className="mt-10 uppercase tracking-[0.08em]">
-            <Link href={visionSection.cta.href}>{visionSection.cta.label}</Link>
-          </Button>
-        </div>
-      </section>
+            <h2 className="mt-10 max-w-4xl text-3xl font-bold leading-[1.12] tracking-tight text-ink-foreground md:text-5xl md:leading-[1.08]">
+              <span className="block text-balance">{visionSection.titleLine1}</span>
+              <span className="mt-1 block text-balance">
+                <span className="font-serif text-[0.92em] font-medium italic text-primary">{visionSection.titleAccent}</span>{" "}
+                {visionSection.titleEnd}
+              </span>
+            </h2>
 
-      <section className="section-dark border-t border-ink-border py-24">
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">{visionSection.desc}</p>
+
+            <Button asChild size="xl" variant="glow" className="mt-10 uppercase tracking-[0.08em]">
+              <Link href={visionSection.cta.href}>{visionSection.cta.label}</Link>
+            </Button>
+          </div>
+        </section>
+      </div>
+
+      <section className="bg-background py-24">
         <div className="mx-auto max-w-7xl px-4">
-          <SectionHeader dark center eyebrow="Why Us" title="Why Choose Our Studio" />
-          <div className="grid gap-6 md:grid-cols-3">
-            {why.map(({ I, t, d }, i) => (
+          <SectionHeader center eyebrow="Why Us" title="Why Choose Our Studio" />
+          <div className="grid gap-5 md:grid-cols-3 md:gap-6">
+            {why.map(({ I, n, t, d }, i) => (
               <Reveal key={t} delay={i * 100}>
-                <div className="lift h-full rounded-xl border border-ink-border p-8">
-                  <div className="grid h-14 w-14 place-items-center rounded-lg bg-primary text-primary-foreground glow"><I /></div>
-                  <h3 className="mt-6 text-xl font-bold">{t}</h3>
-                  <p className="mt-2 text-ink-muted">{d}</p>
-                </div>
+                <article className="group relative flex h-full min-h-[22rem] flex-col overflow-hidden rounded-[1.9rem] bg-panel p-8 transition duration-300 hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground hover:shadow-[0_30px_70px_-30px_color-mix(in_oklab,var(--primary)_75%,transparent)]">
+                  <span aria-hidden className="absolute -bottom-16 -right-12 h-44 w-44 rounded-full bg-ink/[0.04] transition group-hover:bg-light/15" />
+                  <span aria-hidden className="absolute -right-4 top-20 h-24 w-24 rounded-full bg-ink/[0.03] transition group-hover:bg-light/10" />
+                  <div className="relative flex items-start justify-between gap-4">
+                    <span className="grid h-14 w-14 place-items-center rounded-full bg-ink text-ink-foreground transition group-hover:bg-light group-hover:text-ink">
+                      <I className="h-6 w-6" />
+                    </span>
+                    <span className="text-[0.72rem] font-bold uppercase tracking-[0.22em] text-muted-foreground transition group-hover:text-primary-foreground/70">{n}</span>
+                  </div>
+                  <div className="relative mt-auto pt-16">
+                    <h3 className="text-[1.55rem] font-bold leading-[1.08] tracking-tight">{t}</h3>
+                    <p className="mt-3 max-w-[28ch] text-sm leading-relaxed text-muted-foreground transition group-hover:text-primary-foreground/85">{d}</p>
+                  </div>
+                </article>
               </Reveal>
             ))}
           </div>

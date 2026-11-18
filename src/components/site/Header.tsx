@@ -65,7 +65,7 @@ export function Header() {
   const isActive = (to: string) => (to === "/" ? pathname === "/" : pathname === to || pathname.startsWith(`${to}/`));
 
   return (
-    <header ref={headerRef} className="fixed inset-x-0 top-4 z-50 px-4 md:px-6" onMouseLeave={() => setServicesOpen(false)}>
+    <header ref={headerRef} className="fixed inset-x-0 top-3 z-50 px-2 sm:px-3 md:top-4 md:px-4" onMouseLeave={() => setServicesOpen(false)}>
       <div className="relative w-full">
         <div className="nav-pill relative z-20 flex items-center justify-between rounded-full py-2 pl-5 pr-2 shadow-lg">
           <Logo />
