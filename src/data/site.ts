@@ -23,6 +23,7 @@ export const images = {
   clinic: asset(clinic),
   office: asset(office),
   gym: asset(gym),
+  workspace: "/workspace.jpg",
 };
 
 export const site = {

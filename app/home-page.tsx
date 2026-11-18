@@ -148,6 +148,47 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="relative isolate min-h-[min(92svh,52rem)] overflow-hidden bg-ink">
+        <img
+          src={images.workspace}
+          alt="Team working in a branded commercial workspace"
+          width={2048}
+          height={1152}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_30%]"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/75 via-ink/55 to-ink/80" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/70 via-transparent to-ink/40" />
+        <div className="mx-auto flex min-h-[min(92svh,52rem)] w-full max-w-[100rem] items-center justify-end px-4 py-24 sm:px-6 lg:px-8">
+          <div className="w-full max-w-xl text-ink-foreground md:max-w-[32rem] lg:mr-[min(4vw,3rem)]">
+            <p className="flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-primary">
+              <span aria-hidden className="h-px w-10 bg-primary" />
+              Workspaces
+            </p>
+            <h2 className="mt-6 text-4xl font-bold uppercase leading-[0.98] tracking-[-0.03em] md:text-5xl lg:text-[3.5rem]">
+              Built for rooms
+              <br />
+              that mean <span className="text-primary">business.</span>
+            </h2>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-ink-muted md:text-[1.05rem]">
+              Lobby walls, reception logos and wayfinding designed so your office feels finished the moment clients walk in.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Button asChild size="xl" variant="glow" className="uppercase tracking-[0.08em]">
+                <Link href="/categories">
+                  Explore the range
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button asChild size="xl" variant="ghostDark" className="uppercase tracking-[0.08em]">
+                <Link href="/quote">Request a quote</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section-dark py-24">
         <div className="mx-auto max-w-7xl px-4">
           <SectionHeader dark center eyebrow="Why Us" title="Why Choose Our Studio" />
