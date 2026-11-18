@@ -62,6 +62,32 @@ export default function HomePage() {
         </div>
       </section></div>
 
+      <section aria-label="Trusted by" className="bg-transparent py-10">
+        <div className="mx-auto max-w-7xl px-4">
+          <p className="mb-8 text-center text-sm uppercase tracking-widest text-muted-foreground">Trusted by local businesses</p>
+        </div>
+        <div className="brand-marquee" role="presentation">
+          <div className="brand-marquee__track">
+            {[...trustedBrands, ...trustedBrands].map((brand, i) => (
+              <div
+                key={`${brand.name}-${i}`}
+                aria-hidden={i >= trustedBrands.length}
+                className="flex h-12 shrink-0 items-center justify-center md:h-14"
+              >
+                <img
+                  src={brand.logo}
+                  alt={i >= trustedBrands.length ? "" : brand.name}
+                  title={brand.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-auto max-w-[9.5rem] object-contain opacity-80 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 md:max-w-[11rem]"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-4">
           <SectionHeader eyebrow="Featured Products" title="Signage Built to Be Noticed" sub="From glowing channel letters to full fleet wraps, every piece is made in-house." />
@@ -165,25 +191,6 @@ export default function HomePage() {
               <StatCounter value={5000} suffix="+" label="Projects" />
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      <section aria-label="Trusted by" className="border-y bg-secondary py-12">
-        <div className="mx-auto max-w-7xl px-4">
-          <p className="mb-8 text-center text-sm uppercase tracking-widest text-muted-foreground">Trusted by local businesses</p>
-        </div>
-        <div className="brand-marquee" role="presentation">
-          <div className="brand-marquee__track">
-            {[...trustedBrands, ...trustedBrands].map((brand, i) => (
-              <span
-                key={`${brand}-${i}`}
-                aria-hidden={i >= trustedBrands.length}
-                className="shrink-0 whitespace-nowrap font-display text-2xl font-semibold tracking-tight text-foreground/35 md:text-3xl"
-              >
-                {brand}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
 

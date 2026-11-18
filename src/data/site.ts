@@ -50,7 +50,7 @@ export const nav = [
 
 /** Brand logos for the home trusted-by marquee (`public/brands`). */
 export const trustedBrands = [
-  { name: "Woolworths", logo: "/brands/woolworths.svg" },
+  { name: "Woolworths", logo: "/brands/woolworths.png" },
   { name: "Coles", logo: "/brands/coles.png" },
   { name: "Aldi", logo: "/brands/aldi.png" },
   { name: "IGA", logo: "/brands/iga.png" },

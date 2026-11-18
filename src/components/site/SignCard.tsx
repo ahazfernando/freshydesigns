@@ -63,29 +63,44 @@ export function SignCard({ title, desc, image, group, slug, cta = "Enquire Now",
     const num = String(index + 1).padStart(2, "0");
     const pillText = tags ? `${tags[0]}: ${tags[1]}` : group;
     return (
-      <Link href={`/quote?type=${slug}`} className="group relative block pt-6 pr-5">
-        <span aria-hidden className="absolute bottom-1 left-4 right-0 top-8 rounded-[1.4rem] border-[3px] border-light bg-light shadow-[0_18px_40px_-24px_color-mix(in_oklab,var(--ink)_55%,transparent)]" />
-        <article className="relative overflow-hidden rounded-[1.4rem] border-[3px] border-light bg-light shadow-[0_22px_50px_-28px_color-mix(in_oklab,var(--ink)_60%,transparent)]">
-          <span className="pointer-events-none absolute bottom-10 right-0 z-20 origin-bottom-right -rotate-90 whitespace-nowrap pb-1 pr-2 text-[0.58rem] font-bold uppercase tracking-[0.28em] text-ink/45">
+      <Link href={`/quote?type=${slug}`} className="group relative block pt-7 pr-6">
+        <span
+          aria-hidden
+          className="absolute bottom-0 left-5 right-0 top-10 rounded-[1.5rem] border-[3px] border-light bg-light shadow-[0_18px_40px_-24px_color-mix(in_oklab,var(--ink)_50%,transparent)]"
+        />
+        <article className="relative rounded-[1.5rem] border-[3px] border-light bg-light p-1.5 shadow-[0_24px_55px_-28px_color-mix(in_oklab,var(--ink)_55%,transparent)]">
+          <span
+            aria-hidden
+            className="pointer-events-none absolute bottom-[18%] right-[-0.15rem] z-20 origin-bottom-right -rotate-90 whitespace-nowrap text-[0.56rem] font-bold uppercase tracking-[0.3em] text-ink/40"
+          >
             {group} · {num}
           </span>
-          <div className="relative aspect-[3/5] overflow-hidden rounded-[1.15rem] m-[3px]">
-            <img src={image} alt={alt} loading="lazy" width={1024} height={1280} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-b from-ink/25 via-transparent to-ink/90" />
-            <span className="absolute right-3 top-3 rounded-md bg-ink/50 px-2.5 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-white/90 backdrop-blur-sm">
+          <div className="relative aspect-[3/5] overflow-hidden rounded-[1.15rem]">
+            <img
+              src={image}
+              alt={alt}
+              loading="lazy"
+              width={1024}
+              height={1280}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-ink/5 to-ink/92" />
+            <span className="absolute right-3 top-3 rounded-md bg-ink/55 px-2.5 py-1 text-[0.55rem] font-semibold uppercase tracking-[0.16em] text-white/90 backdrop-blur-sm">
               Freshy Designs
             </span>
-            <div className="absolute inset-x-0 bottom-0 p-5 pr-8">
-              <h3 className="text-[1.4rem] font-bold uppercase leading-[1.05] tracking-tight text-white">{title}</h3>
-              <p className="mt-2 line-clamp-2 text-[0.85rem] leading-relaxed text-white/75">{desc}</p>
-              <div className="mt-4 inline-flex max-w-full items-center gap-3 rounded-full bg-ink/60 py-1.5 pl-1.5 pr-4 backdrop-blur-md">
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-primary text-[0.68rem] font-bold text-primary-foreground">{num}</span>
-                <span className="truncate text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-white/90">{pillText}</span>
+            <div className="absolute inset-x-0 bottom-0 p-5 pr-7">
+              <h3 className="text-[1.35rem] font-bold uppercase leading-[1.05] tracking-tight text-white">{title}</h3>
+              <p className="mt-2 line-clamp-2 text-[0.82rem] leading-relaxed text-white/75">{desc}</p>
+              <div className="mt-4 inline-flex max-w-full items-center gap-3 rounded-full bg-ink/65 py-1.5 pl-1.5 pr-4 backdrop-blur-md">
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-primary text-[0.68rem] font-bold text-primary-foreground">
+                  {num}
+                </span>
+                <span className="truncate text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-white/90">{pillText}</span>
               </div>
             </div>
           </div>
         </article>
-        <span className="absolute left-0 top-0 z-10 grid h-[3.35rem] w-[3.35rem] place-items-center rounded-full bg-gradient-to-br from-primary via-primary to-[color-mix(in_oklab,var(--primary)_70%,var(--pop))] text-primary-foreground shadow-[0_12px_28px_-10px_color-mix(in_oklab,var(--primary)_70%,transparent)] ring-[5px] ring-background">
+        <span className="absolute left-0 top-0 z-10 grid h-[3.4rem] w-[3.4rem] place-items-center rounded-full bg-gradient-to-br from-primary via-primary to-[color-mix(in_oklab,var(--primary)_65%,var(--pop))] text-primary-foreground shadow-[0_12px_28px_-10px_color-mix(in_oklab,var(--primary)_70%,transparent)] ring-[5px] ring-background">
           <I className="h-5 w-5" aria-hidden />
           <span className="sr-only">{group}</span>
         </span>
