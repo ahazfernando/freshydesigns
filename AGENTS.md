@@ -1,0 +1,2 @@
+- Site is frontend-only (no backend); forms show success state locally. Content lives in `src/data/site.ts`.
+- **Product cards.** All card styles live in `SignCard.tsx` as named variants; new styles are added there as another variant rather than a separate component, and card content (including short tag labels) comes from `src/data/site.ts`.
