@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { filters, products, type Filter } from "@/data/site";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { SignCard } from "./SignCard";
 import { cn } from "@/lib/utils";
 
@@ -18,9 +19,19 @@ export function CategoryGrid({ cta }: { cta?: string | undefined }) {
           </button>
         ))}
       </div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {list.map((p, i) => <SignCard key={p.slug} {...p} cta={cta} featured={i % 6 === 0} variant={i % 3 === 0 ? "panel" : i % 3 === 1 ? "overlay" : "split"} />)}
-      </div>
+      <Carousel key={f} opts={{ align: "start", dragFree: true }} className="relative">
+        <CarouselContent className="-ml-5 md:pt-2">
+          {list.map((p, i) => (
+            <CarouselItem key={p.slug} className="basis-[78%] pl-5 sm:basis-[48%] lg:basis-[32%]">
+              <SignCard {...p} cta={cta} index={i} variant="stack" />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <div className="mt-8 flex justify-end gap-3">
+          <CarouselPrevious className="static translate-y-0" />
+          <CarouselNext className="static translate-y-0" />
+        </div>
+      </Carousel>
     </div>
   );
 }

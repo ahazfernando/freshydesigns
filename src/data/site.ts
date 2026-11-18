@@ -48,20 +48,20 @@ export const nav = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-/** Wordmarks for the home trusted-by marquee (no logo assets required). */
+/** Brand logos for the home trusted-by marquee (`public/brands`). */
 export const trustedBrands = [
-  "Woolworths",
-  "Coles",
-  "Aldi",
-  "IGA",
-  "Bunnings",
-  "Kmart",
-  "Officeworks",
-  "Chemist Warehouse",
-  "Harvey Norman",
-  "Australia Post",
-  "Telstra",
-  "Qantas",
+  { name: "Woolworths", logo: "/brands/woolworths.svg" },
+  { name: "Coles", logo: "/brands/coles.png" },
+  { name: "Aldi", logo: "/brands/aldi.png" },
+  { name: "IGA", logo: "/brands/iga.png" },
+  { name: "Bunnings", logo: "/brands/bunnings.png" },
+  { name: "Kmart", logo: "/brands/kmart.svg" },
+  { name: "Officeworks", logo: "/brands/officeworks.svg" },
+  { name: "Chemist Warehouse", logo: "/brands/chemist-warehouse.png" },
+  { name: "Harvey Norman", logo: "/brands/harvey-norman.svg" },
+  { name: "Australia Post", logo: "/brands/australia-post.svg" },
+  { name: "Telstra", logo: "/brands/telstra.svg" },
+  { name: "Qantas", logo: "/brands/qantas.svg" },
 ] as const;
 
 export type Filter = "Building Signs" | "Outdoor & Retail" | "Indoor & Reception" | "Vehicle Wraps";

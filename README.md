@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # The Freshy Designs
 
 Custom signage and branding studio website built with Next.js, TypeScript, React, and Tailwind CSS.
@@ -22,6 +21,3 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Content
 
 Site copy, products, services, and insights live in `src/data/site.ts`.
-=======
-# freshydesigns
->>>>>>> ada3d1674c671cdd99a2b56fa43389ea74e0c11e
