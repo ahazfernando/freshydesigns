@@ -19,19 +19,22 @@ export function CategoryGrid({ cta }: { cta?: string | undefined }) {
           </button>
         ))}
       </div>
-      <Carousel key={f} opts={{ align: "start", dragFree: true }} className="relative">
-        <CarouselContent className="-ml-5 pb-4 pt-3">
-          {list.map((p, i) => (
-            <CarouselItem key={p.slug} className="basis-[82%] pl-5 sm:basis-[48%] lg:basis-[30%]">
-              <SignCard {...p} cta={cta} index={i} variant="stack" />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <div className="mt-8 flex justify-end gap-3">
-          <CarouselPrevious className="static translate-y-0" />
-          <CarouselNext className="static translate-y-0" />
-        </div>
-      </Carousel>
+      {/* Bleed carousel to the right viewport edge so peeks aren't clipped mid-container */}
+      <div className="relative right-0 mr-[calc(50%-50vw)]">
+        <Carousel key={f} opts={{ align: "start", dragFree: true }} className="relative">
+          <CarouselContent className="-ml-5 pb-4 pt-3">
+            {list.map((p, i) => (
+              <CarouselItem key={p.slug} className="basis-[82%] pl-5 sm:basis-[48%] lg:basis-[30%]">
+                <SignCard {...p} cta={cta} index={i} variant="stack" />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="mt-8 flex justify-end gap-3 pr-[max(1rem,calc(50vw-50%))]">
+            <CarouselPrevious className="static translate-y-0" />
+            <CarouselNext className="static translate-y-0" />
+          </div>
+        </Carousel>
+      </div>
     </div>
   );
 }

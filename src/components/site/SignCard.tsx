@@ -42,18 +42,20 @@ export function SignCard({ title, desc, image, group, slug, cta = "Enquire Now",
 
   if (variant === "story") {
     return (
-      <Link href={`/quote?type=${slug}`} className="group relative block aspect-[3/5] overflow-hidden rounded-[1.75rem] text-white shadow-xl">
+      <Link href={`/quote?type=${slug}`} className="group relative block aspect-[3/5] h-full overflow-hidden rounded-[1.75rem] text-white shadow-xl">
         <img src={image} alt={alt} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/85" />
-        <div className="absolute right-6 top-6 text-right">
-          <p className="text-sm font-medium">{tags?.[0] ?? group}</p>
-          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-white/60">{group}</p>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/15 to-black/88" />
+        <div className="absolute right-5 top-5 text-right sm:right-6 sm:top-6">
+          <p className="text-sm font-semibold leading-tight">{tags?.[0] ?? group}</p>
+          <p className="mt-1 text-[0.62rem] uppercase tracking-[0.28em] text-white/55">What we offer</p>
         </div>
-        <div className="absolute inset-x-0 bottom-0 p-6 pr-24">
-          <h3 className="text-[1.75rem] font-semibold leading-[1.08] tracking-tight">{title}</h3>
-          <p className="mt-3 line-clamp-3 text-[0.95rem] leading-relaxed text-white/75">{desc}</p>
+        <div className="absolute inset-x-0 bottom-0 flex flex-col justify-end p-5 pr-20 sm:p-6 sm:pr-24">
+          <h3 className="text-[1.55rem] font-semibold leading-[1.08] tracking-tight sm:text-[1.7rem]">{title}</h3>
+          <p className="mt-3 line-clamp-3 text-[0.88rem] leading-relaxed text-white/70 sm:text-[0.95rem]">{desc}</p>
         </div>
-        <span className="absolute bottom-4 right-6 text-6xl font-bold leading-none text-white/15">{String(index + 1).padStart(2, "0")}</span>
+        <span className="pointer-events-none absolute bottom-3 right-5 text-6xl font-bold leading-none text-white/15 sm:bottom-4 sm:right-6 sm:text-7xl">
+          {String(index + 1).padStart(2, "0")}
+        </span>
       </Link>
     );
   }

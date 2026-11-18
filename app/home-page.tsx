@@ -88,27 +88,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-4">
-          <SectionHeader eyebrow="Featured Products" title="Signage Built to Be Noticed" sub="From glowing channel letters to full fleet wraps, every piece is made in-house." />
-          <Carousel opts={{ align: "start", dragFree: true }} className="relative">
-            <CarouselContent className="-ml-5">
-              {products.map((p, i) => (
-                <CarouselItem key={p.slug} className="basis-[82%] pl-5 sm:basis-1/2 lg:basis-1/3">
-                  <SignCard {...p} index={i} variant="story" />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="mt-8 flex justify-end gap-3">
-              <CarouselPrevious className="static translate-y-0" />
-              <CarouselNext className="static translate-y-0" />
+      <section className="py-20 md:py-28">
+        <div className="mx-auto w-full max-w-[100rem] px-4 sm:px-6 lg:px-8">
+          <div className="grid items-stretch gap-10 lg:grid-cols-[minmax(15rem,0.78fr)_minmax(0,2.35fr)] lg:gap-12 xl:gap-16">
+            <div className="flex min-h-0 flex-col lg:min-h-[34rem] xl:min-h-[38rem]">
+              <div className="flex items-center gap-3 text-[0.7rem] font-medium tracking-[0.08em] text-muted-foreground">
+                <span>02</span>
+                <span aria-hidden className="h-px flex-1 bg-border" />
+                <span className="shrink-0">01 - 03</span>
+              </div>
+              <p className="mt-8 max-w-sm text-sm leading-relaxed text-muted-foreground md:text-[0.95rem]">
+                From glowing channel letters to full fleet wraps, every piece is designed, built and installed in-house.
+              </p>
+              <div className="mt-10 lg:mt-auto lg:pt-24">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">/ Featured Products</p>
+                <h2 className="mt-4 max-w-[12ch] text-4xl font-bold leading-[1.02] tracking-tight text-foreground md:text-5xl xl:text-[3.35rem]">
+                  Signage Built to Be Noticed
+                </h2>
+              </div>
             </div>
-          </Carousel>
+            <div className="grid gap-5 sm:grid-cols-3 sm:gap-5 md:gap-6">
+              {products.slice(0, 3).map((p, i) => (
+                <Reveal key={p.slug} delay={i * 90} className="h-full min-w-0">
+                  <SignCard {...p} index={i} variant="story" />
+                </Reveal>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="bg-secondary py-24">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto w-full max-w-[100rem] px-4 sm:px-6 lg:px-8">
           <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
             <div>
               <p className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.24em] text-muted-foreground"><span className="h-2 w-2 rounded-full bg-primary" />Industries</p>
@@ -194,7 +205,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="overflow-x-clip py-24">
         <div className="mx-auto max-w-7xl px-4">
           <SectionHeader eyebrow="Categories" title="Browse by Category" />
           <CategoryGrid />

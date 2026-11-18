@@ -10,7 +10,7 @@ export default function CategoriesPage() {
   return (
     <>
       <PageHero eyebrow="Catalogue" title="Every Sign Your Business Needs" sub="Filter by category and request a quote on anything that catches your eye." />
-      <section className="py-20"><div className="mx-auto max-w-7xl px-4"><CategoryGrid cta="Request Quote" /></div></section>
+      <section className="overflow-x-clip py-20"><div className="mx-auto max-w-7xl px-4"><CategoryGrid cta="Request Quote" /></div></section>
       <CtaBanner />
     </>
   );
