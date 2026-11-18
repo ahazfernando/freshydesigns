@@ -83,7 +83,22 @@ export const industriesSection = {
   title: "Signs we make for every kind of business",
   titleAccent: "every kind of business",
   desc: "From shopfronts and cafes to clinics, offices and fleets — we design, build and install signage that fits how each business actually works.",
-  cta: { label: "See recent projects", href: "/projects" },
+} as const;
+
+export const visionSection = {
+  eyebrow: "Our Vision",
+  title: "For every brand to have a clear presence",
+  titleAccent: "Where design, build, and install",
+  titleEnd: "work as one.",
+  desc: "The Freshy Designs unifies concept, in-house production and on-site installation so your signage looks right, lasts longer, and gets noticed faster.",
+  cta: { label: "Book a Free Consultation", href: "/quote" },
+  people: [
+    { src: "/people/Frame-1.webp", alt: "Team member" },
+    { src: "/people/Frame-2.webp", alt: "Team member" },
+    { src: "/people/Frame-3.webp", alt: "Team member" },
+    { src: "/people/Frame-4.webp", alt: "Team member" },
+    { src: "/people/Frame-5.webp", alt: "Team member" },
+  ],
 } as const;
 
 export const industries: { slug: string; title: string; sub: string; desc: string; image: string; icon: "store" | "coffee" | "health" | "office" | "gym" | "fleet"; featured?: boolean }[] = [

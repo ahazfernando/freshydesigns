@@ -12,7 +12,7 @@ import { CategoryGrid } from "@/components/site/CategoryGrid";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { Reveal } from "@/components/site/Reveal";
 import { IndustryCard } from "@/components/site/IndustryCard";
-import { images, products, services, faqs, process, site, industries, industriesSection, trustedBrands } from "@/data/site";
+import { images, products, services, faqs, process, site, industries, industriesSection, visionSection, trustedBrands } from "@/data/site";
 
 const why = [
   { I: Award, t: "15+ Years Excellence", d: "Over a decade and a half crafting signage for businesses of every size." },
@@ -120,28 +120,25 @@ export default function HomePage() {
 
       <section className="bg-secondary py-24">
         <div className="mx-auto w-full max-w-[100rem] px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end lg:gap-16">
-            <div>
-              <p className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.24em] text-muted-foreground">
-                <span className="h-2 w-2 rounded-full bg-primary" />
-                {industriesSection.eyebrow}
-              </p>
-              <h2 className="max-w-xl text-4xl font-bold leading-[1.03] tracking-tight md:text-5xl">
-                Signs we make for <span className="text-primary">{industriesSection.titleAccent}</span>
-              </h2>
-            </div>
-            <div className="flex max-w-md flex-col items-start gap-6 lg:justify-self-end lg:pb-1">
-              <p className="text-base leading-relaxed text-muted-foreground md:text-[1.05rem]">{industriesSection.desc}</p>
-              <Link
-                href={industriesSection.cta.href}
-                className="inline-flex items-center gap-2 rounded-full border px-6 py-3 text-[0.72rem] font-bold uppercase tracking-[0.12em] transition-colors hover:bg-card"
-              >
-                {industriesSection.cta.label}
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-          </div>
           <Carousel opts={{ align: "start", dragFree: true }} className="relative">
+            <div className="mb-12 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end lg:gap-16">
+              <div>
+                <p className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.24em] text-muted-foreground">
+                  <span className="h-2 w-2 rounded-full bg-primary" />
+                  {industriesSection.eyebrow}
+                </p>
+                <h2 className="max-w-xl text-4xl font-bold leading-[1.03] tracking-tight md:text-5xl">
+                  Signs we make for <span className="text-primary">{industriesSection.titleAccent}</span>
+                </h2>
+              </div>
+              <div className="flex max-w-md flex-col items-start gap-6 lg:justify-self-end lg:pb-1">
+                <p className="text-base leading-relaxed text-muted-foreground md:text-[1.05rem]">{industriesSection.desc}</p>
+                <div className="flex items-center gap-3">
+                  <CarouselPrevious className="static h-12 w-12 translate-y-0 rounded-full border-foreground/15 bg-card shadow-sm hover:border-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-40" />
+                  <CarouselNext className="static h-12 w-12 translate-y-0 rounded-full border-transparent bg-primary text-primary-foreground shadow-sm hover:bg-ink hover:text-ink-foreground disabled:opacity-40" />
+                </div>
+              </div>
+            </div>
             <CarouselContent className="-ml-6 md:pt-6">
               {industries.map((it) => (
                 <CarouselItem key={it.slug} className="basis-[84%] pl-6 sm:basis-1/2 lg:basis-1/3">
@@ -151,10 +148,6 @@ export default function HomePage() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="mt-8 flex justify-end gap-3">
-              <CarouselPrevious className="static translate-y-0" />
-              <CarouselNext className="static translate-y-0" />
-            </div>
           </Carousel>
         </div>
       </section>
@@ -200,7 +193,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-dark py-24">
+      <section className="section-dark py-24 md:py-32">
+        <div className="mx-auto flex max-w-4xl flex-col items-center px-4 text-center">
+          <span className="inline-flex rounded-full border border-ink-border px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-ink-foreground">
+            {visionSection.eyebrow}
+          </span>
+
+          <div className="mt-8 flex items-center justify-center -space-x-3">
+            {visionSection.people.map((person) => (
+              <img
+                key={person.src}
+                src={person.src}
+                alt={person.alt}
+                width={72}
+                height={72}
+                loading="lazy"
+                decoding="async"
+                className="h-14 w-14 rounded-full object-cover ring-2 ring-ink md:h-16 md:w-16"
+              />
+            ))}
+          </div>
+
+          <h2 className="mt-10 max-w-3xl text-3xl font-bold leading-[1.12] tracking-tight text-ink-foreground md:text-5xl md:leading-[1.08]">
+            {visionSection.title}
+            <br />
+            <span className="font-serif text-[0.92em] font-medium italic text-primary">{visionSection.titleAccent}</span>{" "}
+            {visionSection.titleEnd}
+          </h2>
+
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">{visionSection.desc}</p>
+
+          <Button asChild size="xl" variant="glow" className="mt-10 uppercase tracking-[0.08em]">
+            <Link href={visionSection.cta.href}>{visionSection.cta.label}</Link>
+          </Button>
+        </div>
+      </section>
+
+      <section className="section-dark border-t border-ink-border py-24">
         <div className="mx-auto max-w-7xl px-4">
           <SectionHeader dark center eyebrow="Why Us" title="Why Choose Our Studio" />
           <div className="grid gap-6 md:grid-cols-3">
