@@ -25,6 +25,10 @@ export const metadata: Metadata = {
     template: "%s | The Freshy Designs",
   },
   description: "Premium custom signage and branding studio in Australia.",
+  icons: {
+    icon: "/monogram.png",
+    apple: "/monogram.png",
+  },
   openGraph: {
     title: "The Freshy Designs",
     description: "Premium custom signage and branding studio in Australia.",

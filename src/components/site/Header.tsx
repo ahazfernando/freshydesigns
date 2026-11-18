@@ -7,14 +7,28 @@ import { ArrowRight, ArrowUpRight, ChevronDown, Mail, Menu, X } from "lucide-rea
 import { nav, services } from "@/data/site";
 import { cn } from "@/lib/utils";
 
-export function Logo() {
+export function Logo({ onDark = false }: { onDark?: boolean } = {}) {
+  if (onDark) {
+    return (
+      <Link href="/" className="flex items-center gap-2.5 text-lg font-bold text-ink-foreground">
+        <img src="/monogram.png" alt="" width={36} height={36} className="h-9 w-9 object-contain" />
+        <span className="leading-none">
+          THE FRESHY DESIGNS
+          <span className="block text-[0.6rem] font-medium tracking-[0.08em] opacity-60">Design Solutions For Any Media.</span>
+        </span>
+      </Link>
+    );
+  }
+
   return (
-    <Link href="/" className="flex items-center gap-2 text-lg font-bold">
-      <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground glow">F</span>
-      <span className="leading-none">
-        THE FRESHY DESIGNS
-        <span className="block text-[0.6rem] font-medium tracking-[0.08em] opacity-60">Design Solutions For Any Media.</span>
-      </span>
+    <Link href="/" className="flex items-center">
+      <img
+        src="/logo.png"
+        alt="The Freshy Designs"
+        width={217}
+        height={72}
+        className="h-9 w-auto object-contain md:h-10"
+      />
     </Link>
   );
 }
@@ -52,7 +66,7 @@ export function Header() {
 
   return (
     <header ref={headerRef} className="fixed inset-x-0 top-4 z-50 px-4 md:px-6" onMouseLeave={() => setServicesOpen(false)}>
-      <div className="relative mx-auto max-w-[86rem]">
+      <div className="relative w-full">
         <div className="nav-pill relative z-20 flex items-center justify-between rounded-full py-2 pl-5 pr-2 shadow-lg">
           <Logo />
 
@@ -168,7 +182,7 @@ export function Header() {
       </div>
 
       {open && (
-        <nav aria-label="Mobile" className="nav-pill mx-auto mt-2 max-h-[calc(100svh-7rem)] max-w-[86rem] overflow-y-auto rounded-[1.5rem] p-3 xl:hidden">
+        <nav aria-label="Mobile" className="nav-pill mt-2 max-h-[calc(100svh-7rem)] w-full overflow-y-auto rounded-[1.5rem] p-3 xl:hidden">
           {nav.map((item) =>
             item.to === "/services" ? (
               <div key={item.to}>

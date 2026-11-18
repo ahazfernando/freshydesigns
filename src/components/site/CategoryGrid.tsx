@@ -20,9 +20,9 @@ export function CategoryGrid({ cta }: { cta?: string | undefined }) {
         ))}
       </div>
       <Carousel key={f} opts={{ align: "start", dragFree: true }} className="relative">
-        <CarouselContent className="-ml-5 md:pt-2">
+        <CarouselContent className="-ml-5 pb-4 pt-3">
           {list.map((p, i) => (
-            <CarouselItem key={p.slug} className="basis-[78%] pl-5 sm:basis-[48%] lg:basis-[32%]">
+            <CarouselItem key={p.slug} className="basis-[82%] pl-5 sm:basis-[48%] lg:basis-[30%]">
               <SignCard {...p} cta={cta} index={i} variant="stack" />
             </CarouselItem>
           ))}

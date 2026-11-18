@@ -25,7 +25,7 @@ export function Footer() {
     <footer className="section-dark border-t border-ink-border">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Logo />
+          <Logo onDark />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-ink-muted">{site.blurb}</p>
           <div className="mt-6 flex gap-3">
             {(
