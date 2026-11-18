@@ -19,7 +19,7 @@ export function Logo() {
   );
 }
 
-const pill = "rounded-full px-4 py-2 text-[0.82rem] font-medium transition";
+const pill = "rounded-[24px] px-4 py-2 text-[0.82rem] font-medium transition";
 
 export function Header() {
   const pathname = usePathname();
@@ -92,7 +92,7 @@ export function Header() {
             </Link>
             <Link
               href="/quote"
-              className="flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-[0.82rem] font-semibold text-primary-foreground transition hover:bg-ink hover:text-ink-foreground"
+              className="flex items-center gap-2 rounded-[24px] bg-primary px-5 py-3 text-[0.82rem] font-semibold text-primary-foreground transition hover:bg-ink hover:text-ink-foreground"
             >
               Request a Quote
               <ArrowUpRight className="h-4 w-4" />

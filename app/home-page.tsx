@@ -45,7 +45,7 @@ export default function HomePage() {
             <span className="rounded-full bg-primary px-3 py-1 tracking-[0.08em] text-primary-foreground">Made in-house</span>
             Design to installation
           </span>
-          <h1 className="mt-7 max-w-5xl text-5xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-7xl">Transform Your Brand With <span className="text-primary">Stunning Signage</span></h1>
+          <h1 className="mt-7 max-w-5xl text-5xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-7xl">Transform Your Brand<br />With <span className="text-primary">Stunning Signage</span></h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">Architectural building signs, vehicle wraps, illuminated lightboxes and retail branding, designed, manufactured and installed in {site.city}.</p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <Button asChild variant="glow" size="xl"><Link href="/quote">Request Fast Quote</Link></Button>
