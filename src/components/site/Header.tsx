@@ -119,63 +119,67 @@ export function Header() {
         </div>
 
         {servicesOpen && (
+          // pt-3 bridges the visual gap so the cursor never leaves the header hit area
           <div
             id="services-menu"
-            className="section-dark absolute inset-x-0 top-[calc(100%+0.75rem)] z-10 hidden overflow-hidden rounded-[2rem] border border-ink-border shadow-2xl xl:grid xl:grid-cols-[19rem_1fr]"
+            className="absolute inset-x-0 top-full z-10 hidden pt-3 xl:block"
+            onMouseEnter={() => setServicesOpen(true)}
           >
-            <div className="border-r border-ink-border p-5">
-              <p className="px-3 pb-3 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-ink-muted">What we do</p>
-              <nav aria-label="Services" className="space-y-1">
-                {services.map((service, index) => (
-                  <button
-                    key={service.slug}
-                    type="button"
-                    onMouseEnter={() => setActiveService(index)}
-                    onFocus={() => setActiveService(index)}
-                    onClick={() => setActiveService(index)}
-                    className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-[0.9rem] font-medium transition ${index === activeService ? "bg-primary text-primary-foreground" : "text-ink-muted hover:bg-light/5 hover:text-ink-foreground"}`}
-                  >
-                    {service.title}
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                ))}
-              </nav>
-              <Link
-                href="/services"
-                onClick={() => setServicesOpen(false)}
-                className="mt-4 flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-ink-muted transition hover:text-primary"
-              >
-                View all services
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-
-            <div className="relative grid min-h-[25rem] grid-cols-[1fr_0.85fr] gap-8 overflow-hidden bg-gradient-to-br from-primary/15 via-ink to-ink p-9">
-              <div className="relative z-10 flex flex-col items-start justify-center">
-                <p className="text-[0.65rem] font-semibold uppercase tracking-[0.26em] text-primary">Services</p>
-                <h2 className="mt-4 max-w-sm text-4xl font-semibold leading-[1.04] tracking-tight">{currentService.title}</h2>
-                <p className="mt-5 max-w-md text-sm leading-relaxed text-ink-muted">{currentService.intro}</p>
+            <div className="section-dark overflow-hidden rounded-[2rem] border border-ink-border shadow-2xl xl:grid xl:grid-cols-[19rem_1fr]">
+              <div className="border-r border-ink-border p-5">
+                <p className="px-3 pb-3 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-ink-muted">What we do</p>
+                <nav aria-label="Services" className="space-y-1">
+                  {services.map((service, index) => (
+                    <button
+                      key={service.slug}
+                      type="button"
+                      onMouseEnter={() => setActiveService(index)}
+                      onFocus={() => setActiveService(index)}
+                      onClick={() => setActiveService(index)}
+                      className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-[0.9rem] font-medium transition ${index === activeService ? "bg-primary text-primary-foreground" : "text-ink-muted hover:bg-light/5 hover:text-ink-foreground"}`}
+                    >
+                      {service.title}
+                      <ArrowRight className="h-4 w-4" />
+                    </button>
+                  ))}
+                </nav>
                 <Link
-                  href={`/services/${currentService.slug}`}
+                  href="/services"
                   onClick={() => setServicesOpen(false)}
-                  className="mt-7 inline-flex items-center gap-3 rounded-full bg-cream px-6 py-3 text-sm font-semibold text-ink transition hover:bg-primary hover:text-primary-foreground"
+                  className="mt-4 flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-ink-muted transition hover:text-primary"
                 >
-                  View service
-                  <ArrowUpRight className="h-4 w-4" />
+                  View all services
+                  <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
-              <div className="relative min-h-64 overflow-hidden rounded-[1.5rem] border border-light/10">
-                <img key={currentService.slug} src={currentService.image} alt={currentService.title} className="h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent" />
+
+              <div className="relative grid min-h-[25rem] grid-cols-[1fr_0.85fr] gap-8 overflow-hidden bg-gradient-to-br from-primary/15 via-ink to-ink p-9">
+                <div className="relative z-10 flex flex-col items-start justify-center">
+                  <p className="text-[0.65rem] font-semibold uppercase tracking-[0.26em] text-primary">Services</p>
+                  <h2 className="mt-4 max-w-sm text-4xl font-semibold leading-[1.04] tracking-tight">{currentService.title}</h2>
+                  <p className="mt-5 max-w-md text-sm leading-relaxed text-ink-muted">{currentService.intro}</p>
+                  <Link
+                    href={`/services/${currentService.slug}`}
+                    onClick={() => setServicesOpen(false)}
+                    className="mt-7 inline-flex items-center gap-3 rounded-full bg-cream px-6 py-3 text-sm font-semibold text-ink transition hover:bg-primary hover:text-primary-foreground"
+                  >
+                    View service
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </div>
+                <div className="relative min-h-64 overflow-hidden rounded-[1.5rem] border border-light/10">
+                  <img key={currentService.slug} src={currentService.image} alt={currentService.title} className="h-full w-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent" />
+                </div>
+                <button
+                  type="button"
+                  aria-label="Close services menu"
+                  onClick={() => setServicesOpen(false)}
+                  className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full bg-light/10 text-ink-foreground transition hover:bg-primary hover:text-primary-foreground"
+                >
+                  <X className="h-4 w-4" />
+                </button>
               </div>
-              <button
-                type="button"
-                aria-label="Close services menu"
-                onClick={() => setServicesOpen(false)}
-                className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full bg-light/10 text-ink-foreground transition hover:bg-primary hover:text-primary-foreground"
-              >
-                <X className="h-4 w-4" />
-              </button>
             </div>
           </div>
         )}

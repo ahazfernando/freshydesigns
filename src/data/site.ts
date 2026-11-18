@@ -78,6 +78,14 @@ export const products: { slug: string; title: string; desc: string; image: strin
   { slug: "cafe", title: "Cafe & Restaurant Signs", desc: "A-frames, menu boards, custom neon and awnings for hospitality venues.", image: asset(cafe), group: "Outdoor & Retail", tags: ["A-Frames", "Neon"] },
 ];
 
+export const industriesSection = {
+  eyebrow: "Industries",
+  title: "Signs we make for every kind of business",
+  titleAccent: "every kind of business",
+  desc: "From shopfronts and cafes to clinics, offices and fleets — we design, build and install signage that fits how each business actually works.",
+  cta: { label: "See recent projects", href: "/projects" },
+} as const;
+
 export const industries: { slug: string; title: string; sub: string; desc: string; image: string; icon: "store" | "coffee" | "health" | "office" | "gym" | "fleet"; featured?: boolean }[] = [
   { slug: "retail", title: "Retail & Storefronts", sub: "Shopfronts that stop traffic", desc: "Awnings, window graphics and illuminated fascia signs that turn foot traffic through the door.", image: asset(retail), icon: "store", featured: true },
   { slug: "hospitality", title: "Cafes & Restaurants", sub: "Set the mood before the menu", desc: "Custom neon, A-frames and menu boards that carry your vibe from the street to the table.", image: asset(cafe), icon: "coffee" },

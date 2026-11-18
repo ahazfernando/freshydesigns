@@ -42,7 +42,7 @@ export function SignCard({ title, desc, image, group, slug, cta = "Enquire Now",
 
   if (variant === "story") {
     return (
-      <Link href={`/quote?type=${slug}`} className="group relative block aspect-[3/5] h-full overflow-hidden rounded-[1.75rem] text-white shadow-xl">
+      <Link href={`/quote?type=${slug}`} className="group relative block h-full min-h-[28rem] w-full overflow-hidden rounded-[1.75rem] text-white shadow-xl">
         <img src={image} alt={alt} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/15 to-black/88" />
         <div className="absolute right-5 top-5 text-right sm:right-6 sm:top-6">
