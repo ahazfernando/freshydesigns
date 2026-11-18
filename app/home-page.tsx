@@ -12,7 +12,7 @@ import { CategoryGrid } from "@/components/site/CategoryGrid";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { Reveal } from "@/components/site/Reveal";
 import { IndustryCard } from "@/components/site/IndustryCard";
-import { images, products, services, faqs, process, site, industries, projects, trustedBrands } from "@/data/site";
+import { images, products, services, faqs, process, site, industries, trustedBrands } from "@/data/site";
 
 const why = [
   { I: Award, t: "15+ Years Excellence", d: "Over a decade and a half crafting signage for businesses of every size." },
@@ -80,7 +80,7 @@ export default function HomePage() {
                   title={brand.name}
                   loading="lazy"
                   decoding="async"
-                  className="h-full w-auto max-w-[9.5rem] object-contain opacity-80 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 md:max-w-[11rem]"
+                  className="h-full w-auto max-w-[9.5rem] object-contain opacity-90 transition duration-300 hover:opacity-100 md:max-w-[11rem]"
                 />
               </div>
             ))}
@@ -198,37 +198,6 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4">
           <SectionHeader eyebrow="Categories" title="Browse by Category" />
           <CategoryGrid />
-        </div>
-      </section>
-
-      <section className="bg-secondary py-24">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.24em] text-muted-foreground"><span className="h-2 w-2 rounded-full bg-primary" />Recent Projects</p>
-              <h2 className="max-w-xl text-4xl font-bold leading-[1.03] tracking-tight md:text-5xl">Work that's already out on the street</h2>
-            </div>
-            <Link href="/projects" className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-ink-foreground transition-transform hover:-translate-y-0.5">
-              View all projects
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.slice(0, 3).map((p, i) => (
-              <Reveal key={p.title} delay={i * 100}>
-                <article className="lift group h-full overflow-hidden rounded-[1.5rem] border bg-card">
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img src={p.image} alt={`${p.title} for ${p.client}`} loading="lazy" width={1280} height={832} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <span className="absolute left-4 top-4 rounded-full bg-light/90 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-ink backdrop-blur">{p.category}</span>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold leading-tight tracking-tight">{p.title}</h3>
-                    <p className="mt-1.5 text-sm font-semibold text-primary">{p.client}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
