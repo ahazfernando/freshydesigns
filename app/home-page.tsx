@@ -234,13 +234,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="relative z-20 section-dark py-24 md:py-32">
+        <section className="relative z-20 bg-background py-14 md:py-20">
           <div className="mx-auto flex max-w-4xl flex-col items-center px-4 text-center">
-            <span className="inline-flex rounded-full border border-ink-border px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-ink-foreground">
+            <span className="inline-flex rounded-full border border-border px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-foreground">
               {visionSection.eyebrow}
             </span>
 
-            <div className="mt-8 flex items-center justify-center -space-x-3">
+            <div className="mt-6 flex items-center justify-center -space-x-3">
               {visionSection.people.map((person) => (
                 <img
                   key={person.src}
@@ -250,12 +250,12 @@ export default function HomePage() {
                   height={72}
                   loading="lazy"
                   decoding="async"
-                  className="h-14 w-14 rounded-full object-cover ring-2 ring-ink md:h-16 md:w-16"
+                  className="h-12 w-12 rounded-full object-cover ring-2 ring-background md:h-14 md:w-14"
                 />
               ))}
             </div>
 
-            <h2 className="mt-10 max-w-4xl text-3xl font-bold leading-[1.12] tracking-tight text-ink-foreground md:text-5xl md:leading-[1.08]">
+            <h2 className="mt-7 max-w-4xl text-3xl font-bold leading-[1.12] tracking-tight text-foreground md:text-5xl md:leading-[1.08]">
               <span className="block text-balance">{visionSection.titleLine1}</span>
               <span className="mt-1 block text-balance">
                 <span className="font-serif text-[0.92em] font-medium italic text-primary">{visionSection.titleAccent}</span>{" "}
@@ -263,9 +263,9 @@ export default function HomePage() {
               </span>
             </h2>
 
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">{visionSection.desc}</p>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">{visionSection.desc}</p>
 
-            <Button asChild size="xl" variant="glow" className="mt-10 uppercase tracking-[0.08em]">
+            <Button asChild size="xl" variant="glow" className="mt-7 uppercase tracking-[0.08em]">
               <Link href={visionSection.cta.href}>{visionSection.cta.label}</Link>
             </Button>
           </div>
