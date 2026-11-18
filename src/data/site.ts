@@ -83,7 +83,7 @@ export const industriesSection = {
   eyebrow: "Industries",
   title: "Signs we make for every kind of business",
   titleAccent: "every kind of business",
-  desc: "From shopfronts and cafes to clinics, offices and fleets — we design, build and install signage that fits how each business actually works.",
+  desc: "From shopfronts to fleets — signage designed, built and installed for how each business works.",
 } as const;
 
 export const visionSection = {
@@ -111,12 +111,21 @@ export const studioSection = {
   secondaryCta: { label: "Request a quote", href: "/quote" },
 } as const;
 
-export const industries: { slug: string; title: string; sub: string; desc: string; image: string; icon: "store" | "coffee" | "health" | "office" | "gym" | "fleet"; featured?: boolean }[] = [
-  { slug: "retail", title: "Retail & Storefronts", sub: "Shopfronts that stop traffic", desc: "Awnings, window graphics and illuminated fascia signs that turn foot traffic through the door.", image: asset(retail), icon: "store", featured: true },
-  { slug: "hospitality", title: "Cafes & Restaurants", sub: "Set the mood before the menu", desc: "Custom neon, A-frames and menu boards that carry your vibe from the street to the table.", image: asset(cafe), icon: "coffee" },
-  { slug: "health", title: "Clinics & Health", sub: "Calm, clear wayfinding", desc: "Reception logos, frosted glass and room signage that feel professional and easy to read.", image: asset(clinic), icon: "health" },
+export const industries: {
+  slug: string;
+  title: string;
+  sub: string;
+  desc: string;
+  image: string;
+  art?: string;
+  icon: "store" | "coffee" | "health" | "office" | "gym" | "fleet";
+  featured?: boolean;
+}[] = [
+  { slug: "retail", title: "Retail & Storefronts", sub: "Shopfronts that stop traffic", desc: "Awnings, window graphics and illuminated fascia signs that turn foot traffic through the door.", image: asset(retail), art: "/assets/retail.png", icon: "store", featured: true },
+  { slug: "hospitality", title: "Cafes & Restaurants", sub: "Set the mood before the menu", desc: "Custom neon, A-frames and menu boards that carry your vibe from the street to the table.", image: asset(cafe), art: "/assets/cafe.png", icon: "coffee" },
+  { slug: "health", title: "Clinics & Health", sub: "Calm, clear wayfinding", desc: "Reception logos, frosted glass and room signage that feel professional and easy to read.", image: asset(clinic), art: "/assets/health.png", icon: "health" },
+  { slug: "fitness", title: "Gyms & Studios", sub: "Signage with energy", desc: "LED neon feature walls and large-format graphics that photograph well and keep members motivated.", image: asset(gym), art: "/assets/gym.png", icon: "gym" },
   { slug: "corporate", title: "Offices & Commercial", sub: "Make the building yours", desc: "Bronze plaques, lobby walls and floor directories built and certified to council standards.", image: asset(office), icon: "office" },
-  { slug: "fitness", title: "Gyms & Studios", sub: "Signage with energy", desc: "LED neon feature walls and large-format graphics that photograph well and keep members motivated.", image: asset(gym), icon: "gym" },
   { slug: "fleet", title: "Fleets & Trades", sub: "Advertising on wheels", desc: "Full and partial wraps for vans, utes and truck fleets, engineered to survive the outdoors.", image: asset(vehicle), icon: "fleet" },
 ];
 

@@ -25,7 +25,7 @@ export function IndustryCard({ item }: { item: Industry }) {
         "lift relative flex h-full min-h-[27rem] flex-col overflow-hidden rounded-[1.9rem] p-7",
         featured
           ? "bg-primary text-primary-foreground shadow-[0_30px_70px_-30px_color-mix(in_oklab,var(--primary)_75%,transparent)]"
-          : "bg-panel text-panel-foreground",
+          : "bg-card text-card-foreground",
       )}
     >
       <span
@@ -37,19 +37,32 @@ export function IndustryCard({ item }: { item: Industry }) {
         className={cn("absolute -right-6 top-24 h-20 w-20 rounded-full", featured ? "bg-light/10" : "bg-ink/[0.03]")}
       />
 
-      <span className={cn("grid h-12 w-12 shrink-0 place-items-center rounded-full", featured ? "bg-light text-ink" : "bg-ink text-ink-foreground")}>
+      {item.art && (
+        <img
+          src={item.art}
+          alt=""
+          aria-hidden
+          width={280}
+          height={280}
+          loading="lazy"
+          decoding="async"
+          className="pointer-events-none absolute -bottom-10 -right-10 z-[1] h-[11.5rem] w-[11.5rem] object-contain drop-shadow-lg md:h-[12.5rem] md:w-[12.5rem]"
+        />
+      )}
+
+      <span className={cn("relative z-[2] grid h-12 w-12 shrink-0 place-items-center rounded-full", featured ? "bg-light text-ink" : "bg-ink text-ink-foreground")}>
         <I className="h-5 w-5" />
       </span>
 
-      <div className="relative mt-9">
-        <h3 className="text-[1.7rem] font-bold leading-[1.06] tracking-tight">{item.title}</h3>
+      <div className="relative z-[2] mt-9">
+        <h3 className="text-[1.55rem] font-bold leading-[1.06] tracking-tight md:text-[1.65rem]">{item.title}</h3>
         <p className={cn("mt-2 text-sm font-semibold", featured ? "text-primary-foreground/85" : "text-primary")}>{item.sub}</p>
       </div>
 
       <div className="flex-1" />
 
-      <div className="relative">
-        <p className={cn("max-w-[34ch] text-sm leading-relaxed", featured ? "text-primary-foreground/85" : "text-muted-foreground")}>{item.desc}</p>
+      <div className="relative z-[2] max-w-[70%]">
+        <p className={cn("text-sm leading-relaxed", featured ? "text-primary-foreground/85" : "text-muted-foreground")}>{item.desc}</p>
         <Link
           href="/quote"
           className={cn(

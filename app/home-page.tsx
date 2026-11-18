@@ -121,14 +121,15 @@ export default function HomePage() {
       <section className="bg-secondary py-24">
         <div className="mx-auto w-full max-w-[100rem] px-4 sm:px-6 lg:px-8">
           <Carousel opts={{ align: "start", dragFree: true }} className="relative">
-            <div className="mb-12 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end lg:gap-16">
+            <div className="mb-12 grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end lg:gap-16">
               <div>
                 <p className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.24em] text-muted-foreground">
                   <span className="h-2 w-2 rounded-full bg-primary" />
                   {industriesSection.eyebrow}
                 </p>
-                <h2 className="max-w-xl text-4xl font-bold leading-[1.03] tracking-tight md:text-5xl">
-                  Signs we make for <span className="text-primary">{industriesSection.titleAccent}</span>
+                <h2 className="max-w-3xl text-4xl font-bold leading-[1.03] tracking-tight md:text-5xl">
+                  <span className="block text-balance">Signs we make for</span>
+                  <span className="block text-balance text-primary">{industriesSection.titleAccent}</span>
                 </h2>
               </div>
               <div className="flex max-w-md flex-col items-start gap-6 lg:justify-self-end lg:pb-1">
@@ -139,9 +140,9 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <CarouselContent className="-ml-6 md:pt-6">
+            <CarouselContent className="-ml-5 md:pt-6">
               {industries.map((it) => (
-                <CarouselItem key={it.slug} className="basis-[84%] pl-6 sm:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={it.slug} className="basis-[78%] pl-5 sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
                   <div className={it.featured ? "md:-translate-y-6" : undefined}>
                     <IndustryCard item={it} />
                   </div>
@@ -152,49 +153,50 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="workspaces" className="relative isolate min-h-[min(92svh,52rem)] overflow-hidden bg-ink">
-        <img
-          src={images.workspace}
-          alt="Team working in a branded commercial workspace"
-          width={2048}
-          height={1152}
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_28%]"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/40 via-ink/45 to-ink/85" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/65 via-transparent to-ink/25" />
-        <div className="mx-auto flex min-h-[min(92svh,52rem)] w-full max-w-[100rem] items-center justify-end px-4 py-24 sm:px-6 lg:px-8">
-          <div className="w-full max-w-xl text-ink-foreground md:max-w-[34rem] lg:mr-[min(5vw,4rem)]">
-            <p className="flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-primary">
-              <span aria-hidden className="h-px w-10 shrink-0 bg-primary" />
-              Workspaces
-            </p>
-            <h2 className="mt-6 text-4xl font-bold leading-[1.02] tracking-[-0.03em] md:text-5xl lg:text-[3.65rem]">
-              Built for rooms
-              <br />
-              that mean <span className="text-primary">business.</span>
-            </h2>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-white/80 md:text-[1.05rem]">
-              Lobby walls, reception logos and wayfinding designed so your office feels finished the moment clients walk in.
-            </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Button asChild size="xl" variant="glow" className="uppercase tracking-[0.08em]">
-                <Link href="/categories">
-                  Explore the range
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild size="xl" variant="ghostDark" className="border-white/35 uppercase tracking-[0.08em] hover:border-primary">
-                <Link href="/quote">Request a quote</Link>
-              </Button>
+      <div className="relative">
+        <section id="workspaces" className="sticky top-0 z-0 isolate min-h-[min(92svh,52rem)] overflow-hidden bg-ink">
+          <img
+            src={images.workspace}
+            alt="Team working in a branded commercial workspace"
+            width={2048}
+            height={1152}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_28%]"
+          />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/40 via-ink/45 to-ink/85" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/65 via-transparent to-ink/25" />
+          <div className="mx-auto flex min-h-[min(92svh,52rem)] w-full max-w-[100rem] items-center justify-end px-4 py-24 sm:px-6 lg:px-8">
+            <div className="w-full max-w-2xl text-ink-foreground lg:mr-[min(5vw,4rem)]">
+              <p className="flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-primary">
+                <span aria-hidden className="h-px w-10 shrink-0 bg-primary" />
+                Workspaces
+              </p>
+              <h2 className="mt-6 text-4xl font-bold leading-[1.02] tracking-[-0.03em] md:text-5xl lg:text-[3.65rem]">
+                <span className="block text-balance">Built for rooms</span>
+                <span className="block text-balance">
+                  that mean <span className="text-primary">business.</span>
+                </span>
+              </h2>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-white/80 md:text-[1.05rem]">
+                Lobby walls, reception logos and wayfinding designed so your office feels finished the moment clients walk in.
+              </p>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <Button asChild size="xl" variant="glow" className="uppercase tracking-[0.08em]">
+                  <Link href="/categories">
+                    Explore the range
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button asChild size="xl" variant="ghostDark" className="border-white/35 uppercase tracking-[0.08em] hover:border-primary">
+                  <Link href="/quote">Request a quote</Link>
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <div className="relative">
-        <section id="studio" className="sticky top-0 isolate min-h-[min(92svh,52rem)] overflow-hidden bg-ink">
+        <section id="studio" className="sticky top-0 z-10 isolate min-h-[min(92svh,52rem)] overflow-hidden bg-ink">
           <img
             src={images.studio}
             alt="Designer working at a tablet in the Freshy Designs studio"
@@ -232,7 +234,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="relative z-10 section-dark py-24 md:py-32">
+        <section className="relative z-20 section-dark py-24 md:py-32">
           <div className="mx-auto flex max-w-4xl flex-col items-center px-4 text-center">
             <span className="inline-flex rounded-full border border-ink-border px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-ink-foreground">
               {visionSection.eyebrow}
